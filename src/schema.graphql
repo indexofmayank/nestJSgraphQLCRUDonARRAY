@@ -10,5 +10,18 @@ type Book {
 
 type Query {
   index: String!
-  getAllBook: [Book!]!
+  books: [Book!]!
+  bookById(bookid: Int!): Book
+}
+
+type Mutation {
+  delete(bookId: Int!): String
+  AddBook(addBookDto: AddBookDto!): String!
+  UpdateBook(UpdateBookDto: AddBookDto!, bookId: Int!): String!
+}
+
+input AddBookDto {
+  id: Int!
+  title: String!
+  price: Int!
 }
